@@ -1,59 +1,62 @@
-import {Browser, LoadEvent} from 'puppeteer';
+import {Browser, PuppeteerLifeCycleEvent} from 'puppeteer';
 
 export type Element = {
-	container?: string;
-	text: string[];
+  container?: string;
+  text: string[];
 };
 
 export type Pricing = {
-	container: string;
-	euroFormat?: boolean;
+  container: string;
+  euroFormat?: boolean;
 };
 
 export type Brand =
-	| 'test:brand'
-	| 'amd'
-	| 'asrock'
-	| 'asus'
-	| 'colorful'
-	| 'corsair'
-	| 'evga'
-	| 'gainward'
-	| 'galax'
-	| 'gigabyte'
-	| 'inno3d'
-	| 'kfa2'
-	| 'leadtek'
-	| 'microsoft'
-	| 'msi'
-	| 'nvidia'
-	| 'palit'
-	| 'pny'
-	| 'sapphire'
-	| 'sony'
-	| 'xfx'
-	| 'powercolor'
-	| 'zotac';
+  | 'test:brand'
+  | 'captcha-deterrent'
+  | 'amd'
+  | 'asrock'
+  | 'asus'
+  | 'colorful'
+  | 'corsair'
+  | 'evga'
+  | 'gainward'
+  | 'galax'
+  | 'gigabyte'
+  | 'inno3d'
+  | 'kfa2'
+  | 'leadtek'
+  | 'microsoft'
+  | 'msi'
+  | 'nvidia'
+  | 'palit'
+  | 'pny'
+  | 'sapphire'
+  | 'sony'
+  | 'xfx'
+  | 'powercolor'
+  | 'zotac';
 
 export type Series =
-	| 'test:series'
-	| '3060ti'
-	| '3070'
-	| '3080'
-	| '3090'
-	| 'darkhero'
-	| 'rx6800'
-	| 'rx6800xt'
-	| 'rx6900xt'
-	| 'ryzen5600'
-	| 'ryzen5800'
-	| 'ryzen5900'
-	| 'ryzen5950'
-	| 'sonyps5c'
-	| 'sonyps5de'
-	| 'sf'
-	| 'xboxsx'
-	| 'xboxss';
+  | 'test:series'
+  | 'captcha-deterrent'
+  | '3060'
+  | '3060ti'
+  | '3070'
+  | '3080'
+  | '3090'
+  | 'darkhero'
+  | 'rx6800'
+  | 'rx6800xt'
+  | 'rx6900xt'
+  | 'ryzen5600'
+  | 'ryzen5800'
+  | 'ryzen5900'
+  | 'ryzen5950'
+  | 'sonyps5c'
+  | 'sonyps5de'
+  | 'sf'
+  | 'xboxsx'
+  | 'xboxss';
 
 export type Model =
 	| 'test:model'
@@ -115,6 +118,7 @@ export type Model =
 	| 'phoenix'
 	| 'ps5 console'
 	| 'ps5 digital'
+	| 'ps5 valhalla'
 	| 'pulse'
 	| 'red devil'
 	| 'red dragon'
@@ -152,61 +156,68 @@ export type Model =
 	| 'xlr8 uprising';
 
 export type Link = {
-	brand: Brand;
-	cartUrl?: string;
-	itemNumber?: string;
-	labels?: Labels;
-	model: Model;
-	openCartAction?: (browser: Browser) => Promise<string>;
-	price?: number | null;
-	series: Series;
-	screenshot?: string;
-	url: string;
+  brand: Brand;
+  cartUrl?: string;
+  itemNumber?: string;
+  labels?: Labels;
+  model: Model;
+  openCartAction?: (browser: Browser) => Promise<string>;
+  price?: number | null;
+  series: Series;
+  screenshot?: string;
+  url: string;
 };
 
 export type LabelQuery = Element[] | Element | string[];
 
 export type Labels = {
-	bannedSeller?: LabelQuery;
-	captcha?: LabelQuery;
-	container?: string;
-	inStock?: LabelQuery;
-	outOfStock?: LabelQuery;
-	maxPrice?: Pricing;
+  bannedSeller?: LabelQuery;
+  captcha?: LabelQuery;
+  container?: string;
+  inStock?: LabelQuery;
+  outOfStock?: LabelQuery;
+  maxPrice?: Pricing;
+};
+
+export type CaptchaDeterrent = {
+  hardLinks?: string[];
+  searchUrl?: string;
+  searchTerms?: string[];
 };
 
 export type StatusCodeRangeArray = Array<number | [number, number]>;
 
 export type Store = {
-	realTimeInventoryLookup?: (itemNumber: string) => Promise<boolean>;
-	/**
-	 * The range of status codes which will trigger backoff, i.e. an increasing
-	 * delay between requests. Setting an empty array will disable the feature.
-	 * If not defined, the default range will be used: 403.
-	 */
-	backoffStatusCodes?: StatusCodeRangeArray;
-	disableAdBlocker?: boolean;
-	links: Link[];
-	linksBuilder?: {
-		builder: (docElement: cheerio.Cheerio, series: Series) => Link[];
-		ttl?: number;
-		urls: Array<{series: Series; url: string | string[]}>;
-	};
-	labels: Labels;
-	name: string;
-	currency: '£' | '$' | '€' | 'R$' | 'kr.' | '';
-	setupAction?: (browser: Browser) => void;
-	/**
-	 * The range of status codes which considered successful, i.e. without error
-	 * allowing request parsing to continue. Setting an empty array will cause
-	 * all requests to fail. If not defined, the default range will be used:
-	 * 0 -> 399 inclusive.
-	 */
-	successStatusCodes?: StatusCodeRangeArray;
-	waitUntil?: LoadEvent;
-	minPageSleep?: number;
-	maxPageSleep?: number;
+  realTimeInventoryLookup?: (itemNumber: string) => Promise<boolean>;
+  /**
+   * The range of status codes which will trigger backoff, i.e. an increasing
+   * delay between requests. Setting an empty array will disable the feature.
+   * If not defined, the default range will be used: 403.
+   */
+  backoffStatusCodes?: StatusCodeRangeArray;
+  disableAdBlocker?: boolean;
+  links: Link[];
+  linksBuilder?: {
+    builder: (docElement: cheerio.Cheerio, series: Series) => Link[];
+    ttl?: number;
+    urls: Array<{series: Series; url: string | string[]}>;
+  };
+  labels: Labels;
+  name: string;
+  currency: '£' | '$' | '€' | 'R$' | 'kr.' | '';
+  setupAction?: (browser: Browser) => void;
+  /**
+   * The range of status codes which considered successful, i.e. without error
+   * allowing request parsing to continue. Setting an empty array will cause
+   * all requests to fail. If not defined, the default range will be used:
+   * 0 -> 399 inclusive.
+   */
+  successStatusCodes?: StatusCodeRangeArray;
+  waitUntil?: PuppeteerLifeCycleEvent;
+  minPageSleep?: number;
+  maxPageSleep?: number;
 
-	proxyList?: string[];
-	currentProxyIndex?: number;
+  proxyList?: string[];
+  currentProxyIndex?: number;
+  captchaDeterrent?: CaptchaDeterrent;
 };

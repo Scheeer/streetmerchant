@@ -49,22 +49,76 @@ export const Mediamarkt: Store = {
 			url: 'https://www.mediamarkt.de/de/product/-2701239.html'
 		},
 		{
+			brand: 'asus',
+			model: 'dual oc',
+			series: '3060ti',
+			url: 'https://www.mediamarkt.de/de/product/-2701240.html'
+		},
+		{
+			brand: 'gigabyte',
+			model: 'gaming oc',
+			series: '3060ti',
+			url: 'https://www.mediamarkt.de/de/product/-2702990.html'
+		},	
+		{
+			brand: 'gigabyte',
+			model: 'eagle oc',
+			series: '3060ti',
+			url: 'https://www.mediamarkt.de/de/product/-2702991.html'
+		},		
+		{
+			brand: 'gigabyte',
+			model: 'eagle',
+			series: '3060ti',
+			url: 'https://www.mediamarkt.de/de/product/-2702992.html'
+		},
+		{
+			brand: 'inno3d',
+			model: 'twin x2 oc',
+			series: '3060ti',
+			url: 'https://www.mediamarkt.de/de/product/-2703530.html'
+		},
+		{
+			brand: 'gigabyte',
+			model: 'gaming oc pro',
+			series: '3060ti',
+			url: 'https://www.mediamarkt.de/de/product/-2702989.html'
+		},
+		{
+			brand: 'inno3d',
+			model: 'ichill x3',
+			series: '3060ti',
+			url: 'https://www.mediamarkt.de/de/product/-2703526.html'
+		},
+		{
+			brand: 'msi',
+			model: 'gaming x trio',
+			series: '3060ti',
+			url: 'https://www.mediamarkt.de/de/product/-2704388.html'
+		},
+		{
+			brand: 'msi',
+			model: 'ventus 3x oc',
+			series: '3060ti',
+			url: 'https://www.mediamarkt.de/de/product/-2704389.html'
+		},
+		{
+			brand: 'msi',
+			model: 'ventus 2x oc',
+			series: '3060ti',
+			url: 'https://www.mediamarkt.de/de/product/-2704390.html'
+		},
+		{
 			brand: 'zotac',
 			model: 'twin edge',
 			series: '3060ti',
 			url: 'https://www.mediamarkt.de/de/product/-2704436.html'
 		},
 		{
-			brand: 'asus',
-			model: 'strix',
-			series: '3070',
-			url: 'https://www.mediamarkt.de/de/product/-2691243.html'
-		},
-		{
-			brand: 'asus',
-			model: 'strix oc',
-			series: '3070',
-			url: 'https://www.mediamarkt.de/de/product/-2691244.html'
+			brand: 'zotac',
+			model: 'twin edge oc',
+			series: '3060ti',
+			url: 'https://www.mediamarkt.de/de/product/-2704437.html'
 		},
 		{
 			brand: 'asus',
@@ -77,12 +131,6 @@ export const Mediamarkt: Store = {
 			model: 'dual oc',
 			series: '3070',
 			url: 'https://www.mediamarkt.de/de/product/-2691246.html'
-		},
-		{
-			brand: 'asus',
-			model: 'tuf oc',
-			series: '3070',
-			url: 'https://www.mediamarkt.de/de/product/-2691247.html'
 		},
 		{
 			brand: 'gigabyte',
@@ -98,21 +146,15 @@ export const Mediamarkt: Store = {
 		},
 		{
 			brand: 'gigabyte',
-			model: 'aorus master',
-			series: '3070',
-			url: 'https://www.mediamarkt.de/de/product/-2696163.html'
-		},
-		{
-			brand: 'gigabyte',
 			model: 'vision oc',
 			series: '3070',
 			url: 'https://www.mediamarkt.de/de/product/-2696164.html'
 		},
 		{
-			brand: 'msi',
-			model: 'gaming x trio',
+			brand: 'gigabyte',
+			model: 'eagle',
 			series: '3070',
-			url: 'https://www.mediamarkt.de/de/product/-2694894.html'
+			url: 'https://www.mediamarkt.de/de/product/-2696165.html'
 		},
 		{
 			brand: 'msi',
@@ -125,6 +167,18 @@ export const Mediamarkt: Store = {
 			model: 'ventus 2x oc',
 			series: '3070',
 			url: 'https://www.mediamarkt.de/de/product/-2694898.html'
+		},
+		{
+			brand: 'inno3d',
+			model: 'twin x2 oc',
+			series: '3070',
+			url: 'https://www.mediamarkt.de/de/product/-2695943.html'
+		},
+		{
+			brand: 'inno3d',
+			model: 'twin x2',
+			series: '3070',
+			url: 'https://www.mediamarkt.de/de/product/-2695944.html'
 		},
 		{
 			brand: 'inno3d',
@@ -151,17 +205,11 @@ export const Mediamarkt: Store = {
 			url: 'https://www.mediamarkt.de/de/product/-2695671.html'
 		},
 		{
-			brand: 'asus',
-			model: 'strix',
+			brand: 'inno3d',
+			model: 'twin x2 oc',
 			series: '3080',
-			url: 'https://www.mediamarkt.de/de/product/-2681869.html'
-		},
-		{
-			brand: 'asus',
-			model: 'strix oc',
-			series: '3080',
-			url: 'https://www.mediamarkt.de/de/product/-2681871.html'
-		},
+			url: 'https://www.mediamarkt.de/de/product/-2689451.html'
+		},		
 		{
 			brand: 'asus',
 			model: 'tuf',
@@ -181,28 +229,10 @@ export const Mediamarkt: Store = {
 			url: 'https://www.mediamarkt.de/de/product/-2683942.html'
 		},
 		{
-			brand: 'gigabyte',
-			model: 'gaming oc',
-			series: '3080',
-			url: 'https://www.mediamarkt.de/de/product/-2683937.html'
-		},
-		{
 			brand: 'inno3d',
 			model: 'ichill x3',
 			series: '3080',
 			url: 'https://www.mediamarkt.de/de/product/-2684241.html'
-		},
-		{
-			brand: 'inno3d',
-			model: 'ichill x4',
-			series: '3080',
-			url: 'https://www.mediamarkt.de/de/product/-2684238.html'
-		},
-		{
-			brand: 'msi',
-			model: 'gaming x trio',
-			series: '3080',
-			url: 'https://www.mediamarkt.de/de/product/-2683227.html'
 		},
 		{
 			brand: 'msi',
